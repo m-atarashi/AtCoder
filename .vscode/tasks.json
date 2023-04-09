@@ -7,7 +7,6 @@
             "command": "g++",
             "args": [
                 "-g",
-                "-D_GLIBCXX_DEBUG",
                 "-W",
                 "-fdiagnostics-color=always",
                 "-I",
@@ -28,13 +27,7 @@
             "type": "cppbuild",
             "label": "C/C++: g++ アクティブなファイルのビルド",
             "command": "/bin/g++",
-            "args": [
-                "-fdiagnostics-color=always",
-                "-g",
-                "-D_GLIBCXX_DEBUG",
-                "-W",
-                "${file}"
-            ],
+            "args": ["-fdiagnostics-color=always", "-g", "-W", "${file}"],
             "options": {
                 "cwd": "${fileDirname}"
             },
