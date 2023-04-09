@@ -17,10 +17,11 @@
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
-            "group": "build",
+            "problemMatcher": ["$gcc"],
+            "group": {
+                "kind": "build",
+                "isDefault": true
+            },
             "detail": "コンパイラ: g++"
         },
         {
@@ -32,14 +33,12 @@
                 "-g",
                 "-D_GLIBCXX_DEBUG",
                 "-W",
-                "${file}",
+                "${file}"
             ],
             "options": {
                 "cwd": "${fileDirname}"
             },
-            "problemMatcher": [
-                "$gcc"
-            ],
+            "problemMatcher": ["$gcc"],
             "group": "build",
             "detail": "コンパイラ: /bin/g++"
         }
