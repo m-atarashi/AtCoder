@@ -11,11 +11,10 @@
                 "-fdiagnostics-color=always",
                 "-I",
                 "${workspaceFolder}\\ac-library",
-                "${fileBasename}"
+                "${file}",
+                "-o",
+                "${workspaceFolder}\\a.exe"
             ],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
             "problemMatcher": ["$gcc"],
             "group": {
                 "kind": "build",
@@ -27,10 +26,14 @@
             "type": "cppbuild",
             "label": "C/C++: g++ アクティブなファイルのビルド",
             "command": "/bin/g++",
-            "args": ["-fdiagnostics-color=always", "-g", "-W", "${file}"],
-            "options": {
-                "cwd": "${fileDirname}"
-            },
+            "args": [
+                "-g",
+                "-W",
+                "-fdiagnostics-color=always",
+                "-I",
+                "${workspaceFolder}\\ac-library",
+                "${file}"
+            ],
             "problemMatcher": ["$gcc"],
             "group": "build",
             "detail": "コンパイラ: /bin/g++"
