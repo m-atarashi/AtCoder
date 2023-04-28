@@ -2,41 +2,49 @@
     "version": "2.0.0",
     "tasks": [
         {
-            "type": "cppbuild",
-            "label": "C/C++: g++.exe アクティブなファイルのビルド",
-            "command": "g++",
-            "args": [
-                "-g",
-                "-W",
-                "-fdiagnostics-color=always",
-                "-I",
-                "${workspaceFolder}\\ac-library",
-                "${file}",
-                "-o",
-                "${workspaceFolder}\\a.exe"
-            ],
+            "type": "shell",
+            "label": "C/C++: g++",
+            "windows": {
+                "command": "g++",
+                "args": [
+                    "-g",
+                    "-W",
+                    "-fdiagnostics-color=always",
+                    "-I",
+                    "${workspaceFolder}\\ac-library",
+                    "${file}"
+                ],
+                "options": {
+                    "shell": {
+                      "executable": "cmd",
+                      "args": ["/d", "/c"]
+                    }
+                }
+            },
+            "linux": {
+                "command": "/bin/g++",
+                "args": [
+                    "-g",
+                    "-W",
+                    "-fdiagnostics-color=always",
+                    "-I",
+                    "${workspaceFolder}/ac-library",
+                    "${file}",
+                    "-std=c++17"
+                ],
+                "options": {
+                    "shell": {
+                        "executable": "bash",
+                        "args": ["-c"]
+                    }
+                }
+            },
             "problemMatcher": ["$gcc"],
             "group": {
                 "kind": "build",
                 "isDefault": true
             },
-            "detail": "コンパイラ: g++"
-        },
-        {
-            "type": "cppbuild",
-            "label": "C/C++: g++ アクティブなファイルのビルド",
-            "command": "/bin/g++",
-            "args": [
-                "-g",
-                "-W",
-                "-fdiagnostics-color=always",
-                "-I",
-                "${workspaceFolder}\\ac-library",
-                "${file}"
-            ],
-            "problemMatcher": ["$gcc"],
-            "group": "build",
-            "detail": "コンパイラ: /bin/g++"
+            "detail": "Compiler: g++"
         }
     ]
 }
